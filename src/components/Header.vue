@@ -8,8 +8,13 @@ const router = useRouter()
 // Import pocketbase
 import PocketBase from 'pocketbase'
 // Objet pocketBase
-const pb = new PocketBase("http://127.0.0.1:8090");
-
+var pocketbase_ip = "";
+/*
+if (import.meta.env.MODE === "production")
+    pocketbase_ip = "http://tavue.yassirodh.fr:80"; 
+else pocketbase_ip = "http://127.0.0.1:8090";
+const pb = new PocketBase(pocketbase_ip); */
+const pb = new PocketBase(import.meta.env.VITE_URL_POCKETBASE);
 
 // user connecté ? au départ faux
 let isConnected = ref(false)
@@ -73,29 +78,28 @@ const deconnect = () => {
 <template>
   <header style="background: #F0FBFF; border: 1px solid #000; display: flex; justify-content: space-between; align-items: center; padding: 10px; height: 70px; padding-right: 70px;">
     <!-- Logo -->
-    <RouterLink to="/HomeView">
+    <RouterLink to="/">
       <img src="@/assets/Logo_tavue.svg" alt="Logo TAVUE" style="width: 250px; height: auto; transform: rotate(24.787deg);"/>
     </RouterLink>
     <!-- Navigation -->
     <nav>
-      <RouterLink to="/Connexion" class="nav-item">Lunettes</RouterLink>
-      <RouterLink to="/collection" class="nav-item">Collection</RouterLink>
-      <RouterLink to="/notre-histoire" class="nav-item" style="padding-right: 15px;">Notre Histoire</RouterLink>
+      <RouterLink to="/" class="nav-item">Lunettes</RouterLink>
+      <RouterLink to="/Personnalisation" class="nav-item">Configuration</RouterLink>
+      <RouterLink to="/Connexion" class="nav-item" style="padding-right: 15px;">Connexion</RouterLink>
     </nav>
     <div class="ml-auto" style="padding-left: 5px;">
       <span v-if="isConnected" style="justify-content: flex-end;">
         <button class="login-btn">
-          <i>{{ currentUser.name }}</i>
+          <i>{{ currentUser.username }}</i>
         </button>
-        <button class="login-btn" type="button" @click="deconnect">
+        <button class="login-btn" type="button" @click="deconnect" style="margin-left: 10px;">
           <i class="fa fa-sign-out">Déconnecter</i>
         </button>
-        <img :src="avatar" class="img-fluid avatar" />
       </span>
 
       <form v-else class="login-form">
         <input placeholder="Login" v-model="user" class="login-input">
-        <input placeholder="Password" v-model="psw" class="login-input">
+        <input placeholder="Password" type="password" v-model="psw" class="login-input">
         <button type="button" class="login-btn" @click.prevent="connect">
           <i class="fa fa-power-off"></i> Connexion
         </button>

@@ -33,11 +33,11 @@
   
       <!-- Social Media Icons -->
         <div class="social-icons" style="height: auto; width: 20px; margin-right: 20px;">
-            <a href="#" target="_blank"><img src="src/assets/Facebook.svg" alt="Facebook" style="height: auto; width: 30px;"></a>
-            <a href="#" target="_blank"><img src="src/assets/TwitterX.svg" alt="Twitter" style="height: auto; width: 30px;"></a>
-            <a href="#" target="_blank"><img src="src/assets/Youtube.svg" alt="YouTube" style="height: auto; width: 30px;"></a>
-            <a href="#" target="_blank"><img src="src/assets/LinkedIn.svg" alt="LinkedIn" style="height: auto; width: 30px;"></a>
-        </div>
+            <a href="#" target="_blank"><img src="#" alt="Facebook" style="height: auto; width: 30px;"></a>
+            <a href="#" target="_blank"><img src="#" alt="Twitter" style="height: auto; width: 30px;"></a>
+            <a href="#" target="_blank"><img src="#" alt="YouTube" style="height: auto; width: 30px;"></a>
+            <a href="#" target="_blank"><img src="#" alt="LinkedIn" style="height: auto; width: 30px;"></a>
+        </div> <!-- src/assets/LinkedIn.svg -->
     </div>
         <div style="display: flex; justify-content: space-between; align-items: center; ">
             <!-- Bottom Navigation -->
@@ -50,8 +50,8 @@
 
             <!-- Logo -->
             <div class="logo" style=" justify-content: flex-end; margin-right: 90px;">
-                <img src="src/assets/Logo_tavue_2.svg" alt="TAVUE Logo" style="width: 100px; height: auto; transform: rotate(24.787deg)">
-            </div>
+                <img src="#" alt="TAVUE Logo" style="width: 100px; height: auto; transform: rotate(24.787deg)">
+            </div><!-- src/assets/Logo_tavue_2.svg -->
           
         </div>
     </footer>
